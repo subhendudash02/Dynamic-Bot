@@ -8,11 +8,14 @@ The following modules are used:
 2. asyncio
 3. datetime
 4. os
+5. pytz
 
 # Installation of the modules
 In Windows, open cmd/Powershell then type the following command
 
-`pip install discord.py`
+1. `pip install discord.py`
+2. `pip install pytz`
+
 
 <br>
 
