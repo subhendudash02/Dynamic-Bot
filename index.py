@@ -30,7 +30,7 @@ async def reminder(ctx, time: str, *, msg):
     hour = int(current.strftime("%H"))
     minute = int(current.strftime("%M"))
 
-    hour = (li[0] - hour) + 9
+    hour = (li[0] - hour) + 12
     minute = (li[1] - minute) + 30
 
     time = (hour * 3600) + (minute * 60)
