@@ -3,6 +3,7 @@ from discord.ext import commands
 from asyncio import sleep as s
 from datetime import datetime
 import os
+import pytz
 
 # client = discord.Client()
 bot = commands.Bot(command_prefix = "!")
@@ -25,7 +26,8 @@ async def info(ctx):
 
 @bot.command()
 async def time(ctx):
-    x = datetime.now()
+    region = pytz.timezone("Asia/Kolkata")
+    x = datetime.now(region)
     local = x.astimezone()
     local_tz = local.tzinfo
     local_2 = local_tz.tzname(local)
