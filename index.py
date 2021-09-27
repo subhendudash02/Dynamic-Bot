@@ -24,6 +24,11 @@ async def info(ctx):
     await ctx.send(ctx.message.id)
 
 @bot.command()
+async def time(ctx):
+    x = datetime.now()
+    await ctx.send(x)
+
+@bot.command()
 async def reminder(ctx, time: str, *, msg):
     li = list(map(int, time.split(":")))
     current = datetime.now()
@@ -41,5 +46,6 @@ async def reminder(ctx, time: str, *, msg):
         await ctx.send(f'Buckle up @everyone! {msg} is coming up!! Be prepared...')
         break
 
-bot.run(os.environ["TOKEN"])
+#bot.run(os.environ["TOKEN"])
+bot.run("ODkxNzYyOTcyNzM5OTE1ODc3.YVDE_A.eA7XshY3Jab2axcCMSbnZIoL7y8")
 #client.run(token)
