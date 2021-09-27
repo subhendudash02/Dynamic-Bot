@@ -50,6 +50,5 @@ async def reminder(ctx, time: str, *, msg):
         await ctx.send(f'Buckle up @everyone! {msg} is coming up!! Be prepared...')
         break
 
-#bot.run(os.environ["TOKEN"])
-bot.run("ODkxNzYyOTcyNzM5OTE1ODc3.YVDE_A.4kQ28CqeJ_9j0csDiatee9Mupo4")
+bot.run(os.environ["TOKEN"])
 #client.run(token)
