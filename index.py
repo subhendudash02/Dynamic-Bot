@@ -8,6 +8,8 @@ import pytz
 # client = discord.Client()
 bot = commands.Bot(command_prefix = "!")
 
+region = pytz.timezone("Asia/Kolkata")
+
 """
 @client.event
 async def on_ready():
@@ -26,7 +28,6 @@ async def info(ctx):
 
 @bot.command()
 async def time(ctx):
-    region = pytz.timezone("Asia/Kolkata")
     x = datetime.now(region)
     local = x.astimezone()
     local_tz = local.tzinfo
@@ -37,7 +38,7 @@ async def time(ctx):
 @bot.command()
 async def reminder(ctx, time: str, *, msg):
     li = list(map(int, time.split(":")))
-    current = datetime.now()
+    current = datetime.now(region)
     hour = int(current.strftime("%H"))
     minute = int(current.strftime("%M"))
 
