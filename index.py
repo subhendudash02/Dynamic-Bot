@@ -2,6 +2,7 @@
 from discord.ext import commands
 from asyncio import sleep as s
 from datetime import datetime
+import time as tt
 import os
 import pytz
 
@@ -36,22 +37,23 @@ async def time(ctx):
     await ctx.send(local_2)
 
 @bot.command()
-async def reminder(ctx, time: str, *, msg):
-    li = list(map(int, time.split(":")))
-    current = datetime.now(region)
-    hour = int(current.strftime("%H"))
-    minute = int(current.strftime("%M"))
+async def reminder(ctx, date: str,Time: str, *, msg):
+    time_format = "%d/%m/%Y %H:%M"
+    upcoming_time = date + " " + Time
+    Now = datetime.now(region)
+    current_time = Now.strftime(time_format)
 
-    hour = li[0] - hour
-    minute = li[1] - minute
+    d1 = datetime.strptime(current_time, time_format)
+    d2 = datetime.strptime(upcoming_time, time_format)
 
-    time = (hour * 3600) + (minute * 60)
-    print(time)
+    d1 = tt.mktime(d1.timetuple())
+    d2 = tt.mktime(d2.timetuple())
 
     while True:
-        await s(time)
+        await s(d2 - d1)
         await ctx.send(f'Buckle up @everyone! {msg} is coming up!! Be prepared...')
         break
 
-bot.run(os.environ["TOKEN"])
+#bot.run(os.environ["TOKEN"])
+bot.run("ODkxNzYyOTcyNzM5OTE1ODc3.YVDE_A.kV5bx8xW9fb73IUyvqPp40e2Y18")
 #client.run(token)
