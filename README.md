@@ -4,11 +4,12 @@ Dynamic Bot is a bot in Discord used to set the reminder/scheduled messages when
 
 # Requirements
 The following modules are used:
-1. discord.py
+1. discord. py
 2. asyncio
 3. datetime
 4. os
 5. pytz
+6. time
 
 # Installation of the modules
 In Windows, open cmd/Powershell then type the following command
@@ -16,12 +17,11 @@ In Windows, open cmd/Powershell then type the following command
 1. `pip install discord.py`
 2. `pip install pytz`
 
+Other modules comes in-built along with Python.
 
 <br>
 
-## LICENSE
-This repository is licensed under MIT License. Copyright (c) 2021 Subhendu Dash
+<b>Hosted in: </b> Heroku
 
-<br>
-
-<b>Creator: </b> [Subhendu Dash](https://github.com/subhendudash02)
+This repository is licensed under MIT License. <br>
+Copyright (c) 2021 Subhendu Dash

@@ -21,20 +21,17 @@ async def on_ready():
 async def desc(ctx):
     await ctx.send("Hey there! I am a Dynamic Bot. If you wanna set a reminder, Dynamic Bot is there for you!\nPeace!!✌")
 
-@bot.command()
+"""
+bot.command()
 async def info(ctx):
     await ctx.send(ctx.guild)
     await ctx.send(ctx.author)
-    await ctx.send(ctx.message.id)
+"""
 
 @bot.command()
 async def time(ctx):
-    x = datetime.now(region)
-    local = x.astimezone()
-    local_tz = local.tzinfo
-    local_2 = local_tz.tzname(local)
-    await ctx.send(x)
-    await ctx.send(local_2)
+    TIME = datetime.now(region)
+    await ctx.send(f"Hey, {ctx.guild}! The time is {}")
 
 @bot.command()
 async def reminder(ctx, date: str,Time: str, *, msg):
@@ -49,10 +46,12 @@ async def reminder(ctx, date: str,Time: str, *, msg):
     d1 = tt.mktime(d1.timetuple())
     d2 = tt.mktime(d2.timetuple())
 
+    print(d2 - d1)   # To check the seconds
+
     while True:
         await s(d2 - d1)
         await ctx.send(f'Buckle up @everyone! {msg} is coming up!! Be prepared...')
         break
 
-bot.run(os.environ["TOKEN"])
+#bot.run(os.environ["TOKEN"])
 #client.run(token)
