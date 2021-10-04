@@ -9,7 +9,16 @@ import pytz
 # client = discord.Client()
 bot = commands.Bot(command_prefix = "!")
 
+bot.remove_command("help")
+
 region = pytz.timezone("Asia/Kolkata")
+
+def HELP():
+    print("**Commands by Dynamic-Bot: ** \n")
+    print("1. `!desc` : About Me 😁 \n")
+    print("2. `!time` : Ask time \n")
+    print("3. `!reminder <date: dd/mm/yyyy> <time: hh:mm> <event_name>` : Set a reminder of any Event \n")
+
 
 """
 @client.event
@@ -21,6 +30,10 @@ async def on_ready():
 async def desc(ctx):
     await ctx.send("Hey there! I am a Dynamic Bot. If you wanna set a reminder, Dynamic Bot is there for you!\nPeace!!✌")
 
+@bot.command()
+async def help(ctx):
+    await ctx.send("**Commands by Dynamic-Bot: ** \n1. `!desc` : About Me 😁 \n2. `!time` : Ask time \n3. `!reminder <date: dd/mm/yyyy> <time: hh:mm> <event_name>` : Set a reminder of any Event \n")
+
 """
 bot.command()
 async def info(ctx):
@@ -31,7 +44,8 @@ async def info(ctx):
 @bot.command()
 async def time(ctx):
     TIME = datetime.now(region)
-    await ctx.send(f"Hey, {ctx.guild}! The time is {}")
+    x = TIME.strftime("%H:%M:%S")
+    await ctx.send(f"Hey, {ctx.author}! The time is {x}")
 
 @bot.command()
 async def reminder(ctx, date: str,Time: str, *, msg):
@@ -53,5 +67,5 @@ async def reminder(ctx, date: str,Time: str, *, msg):
         await ctx.send(f'Buckle up @everyone! {msg} is coming up!! Be prepared...')
         break
 
-#bot.run(os.environ["TOKEN"])
+bot.run(os.environ["TOKEN"])
 #client.run(token)
