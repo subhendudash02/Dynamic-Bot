@@ -6,7 +6,7 @@ import time as tt
 import os
 import pytz
 
-# client = discord.Client()
+#client = discord.Client()
 bot = commands.Bot(command_prefix = "!")
 
 bot.remove_command("help")
@@ -15,9 +15,11 @@ region = pytz.timezone("Asia/Kolkata")
 
 def HELP():
     print("**Commands by Dynamic-Bot: ** \n")
-    print("1. `!desc` : About Me 😁 \n")
+    print("1. `!desc` : About Me \n")
     print("2. `!time` : Ask time \n")
     print("3. `!reminder <date: dd/mm/yyyy> <time: hh:mm> <event_name>` : Set a reminder of any Event \n")
+    print("4. `!join` : Join the discord server (make sure you join first)")
+    print("5. `!leave` : Leave the discord server")
 
 
 """
@@ -60,12 +62,28 @@ async def reminder(ctx, date: str,Time: str, *, msg):
     d1 = tt.mktime(d1.timetuple())
     d2 = tt.mktime(d2.timetuple())
 
-    print(d2 - d1)   # To check the seconds
+    print("Time left: ", d2 - d1)   # To check the seconds
 
     while True:
         await s(d2 - d1)
         await ctx.send(f'Buckle up @everyone! {msg} is coming up!! Be prepared...')
         break
 
+@bot.command()
+async def join(ctx):
+    vc = ctx.author.voice
+
+    if ctx.author.voice == None:
+        await ctx.send(f'@everyone The voice-channel is empty. Kindly join the voice-channel then type the command again.')
+    else:
+        await ctx.send("Joined!!!")
+        await vc.channel.connect()
+
+@bot.command()
+async def leave(ctx):
+    vc_leave = ctx.voice_client
+    await vc_leave.disconnect()
+    await ctx.send("Left!!!")
+
 bot.run(os.environ["TOKEN"])
-#client.run(token)
+# client.run(token)
