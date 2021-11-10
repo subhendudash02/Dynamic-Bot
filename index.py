@@ -86,6 +86,5 @@ async def leave(ctx):
     await vc_leave.disconnect()
     await ctx.send("Left!!!")
 
-# bot.run(os.environ["TOKEN"])
+bot.run(os.environ["TOKEN"])
 # client.run(token)
-bot.run("ODkxNzYyOTcyNzM5OTE1ODc3.YVDE_A.uhwwsNwK7oQv8ll0aMXdJhjSYa0")
