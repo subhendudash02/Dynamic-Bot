@@ -5,6 +5,7 @@ from datetime import datetime
 import time as tt
 import os
 import pytz
+import nacl
 
 #client = discord.Client()
 bot = commands.Bot(command_prefix = "!")
@@ -34,7 +35,7 @@ async def desc(ctx):
 
 @bot.command()
 async def help(ctx):
-    await ctx.send("**Commands by Dynamic-Bot: ** \n1. `!desc` : About Me 😁 \n2. `!time` : Ask time \n3. `!reminder <date: dd/mm/yyyy> <time: hh:mm> <event_name>` : Set a reminder of any Event \n")
+    await ctx.send("**Commands by Dynamic-Bot: ** \n1. `!desc` : About Me 😁 \n2. `!time` : Ask time \n3. `!reminder <date: dd/mm/yyyy> <time: hh:mm> <event_name>` : Set a reminder of any Event \n4. `!join` : Join the discord server (make sure you join first) \n5. `!leave` : Leave the discord server")
 
 """
 bot.command()
@@ -85,5 +86,6 @@ async def leave(ctx):
     await vc_leave.disconnect()
     await ctx.send("Left!!!")
 
-bot.run(os.environ["TOKEN"])
+# bot.run(os.environ["TOKEN"])
 # client.run(token)
+bot.run("ODkxNzYyOTcyNzM5OTE1ODc3.YVDE_A.uhwwsNwK7oQv8ll0aMXdJhjSYa0")
