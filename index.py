@@ -26,13 +26,13 @@ async def desc(ctx):
 
 @bot.command()
 async def help(ctx):
-    await ctx.send("**Commands by Dynamic-Bot: ** \n1. `!desc` : About Me 😁 \n2. `!time` : Ask time \n3. `!reminder <date: dd/mm/yyyy> <time: hh:mm> <event_name>` : Set a reminder of any Event \n4. `!join` : Join the discord server (make sure you join first) \n5. `!leave` : Leave the discord server")
+    await ctx.send("**Commands by Dynamic-Bot: ** \n)
     await ctx.send("1. `!desc` : About Me 😁 \n")
     await ctx.send("2. `!time` : Ask the current time \n")
     await ctx.send("3. `!reminder <date: dd/mm/yyyy> <time: hh:mm> <event_name>` : Set a reminder of any Event \n")
     await ctx.send("4. `!join` : Join the discord server (make sure you join first) \n")
     await ctx.send("5. `!leave` : Leave the discord server")
-    
+
 """
 bot.command()
 async def info(ctx):
