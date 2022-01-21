@@ -40,13 +40,13 @@ async def info(ctx):
     await ctx.send(ctx.author)
 """
 
-@bot.command(name='!time', help='Ask the current time')
+@bot.command(name='time', help='Ask the current time')
 async def time(ctx):
     TIME = datetime.now(region)
     x = TIME.strftime("%H:%M:%S")
     await ctx.send(f"Hey, {ctx.author}! The time is {x}")
 
-@bot.command(name='!reminder', help='Format: `<date: dd/mm/yyyy> <time: hh:mm> <event_name>`')
+@bot.command(name='reminder', help='Format: `<date: dd/mm/yyyy> <time: hh:mm> <event_name>`')
 async def reminder(ctx, date: str,Time: str, *, msg):
     time_format = "%d/%m/%Y %H:%M"
     upcoming_time = date + " " + Time
@@ -66,7 +66,7 @@ async def reminder(ctx, date: str,Time: str, *, msg):
         await ctx.send(f'Buckle up @everyone! {msg} is coming up!! Be prepared...')
         break
 
-@bot.command(name='!join', help='Join the discord server (make sure you join first)')
+@bot.command(name='join', help='Join the discord server (make sure you join first)')
 async def join(ctx):
     vc = ctx.author.voice
 
@@ -76,7 +76,7 @@ async def join(ctx):
         await ctx.send("Joined!!!")
         await vc.channel.connect()
 
-@bot.command(name='!leave', help='Leave the discord server')
+@bot.command(name='leave', help='Leave the discord server')
 async def leave(ctx):
     vc_leave = ctx.voice_client
     await vc_leave.disconnect()
